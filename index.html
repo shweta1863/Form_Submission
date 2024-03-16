@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Submission</title>
+</head>
+<body>
+    <h1>Submit Form</h1>
+    <form action="/submit" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('form');
+    
+            form.addEventListener('submit', (event) => {
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const nameValue = nameInput.value.trim();
+                const emailValue = emailInput.value.trim();
+    
+                if (nameValue === '') {
+                    alert('Please enter your name.');
+                    event.preventDefault();
+                }
+    
+                if (emailValue === '') {
+                    alert('Please enter your email.');
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+    
+</body>
+<script src="server.js"></script>
+</html>
